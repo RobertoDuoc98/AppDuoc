@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar class="headercolor">
+    <div class="centratit">
+      <ion-buttons slot="start">
+        <ion-img class="imglogo" src="assets/img/DuocUC.svg.png"></ion-img>
+      </ion-buttons>
+      <ion-title class="ion-text-center">
+        Asistencia Duoc
+      </ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background" [fullscreen]="true">
+  <div style="height: 100%; display: flex; align-items: center; justify-content:center;">
+    <ion-card class="colorcard1 ion-text-center ion-padding-vertical">
+      <ion-card-title>
+        <ion-label class="ion-text-center">
+          <h1 class="azul">¡Bienvenido!</h1>
+          <p class="azul" *ngIf="usuario">Usuario: {{ usuario.nombre }} {{usuario.apellido}}</p>
+        </ion-label>
+      </ion-card-title>
+
+      <ion-card-content>
+        <ion-button class="botonduoc ion-auto" *ngIf="!escaneando" (click)="comenzarEscaneoQR()">
+          <ion-icon slot="start" name="videocam-outline"></ion-icon>
+          Comenzar Escaneo de QR
+        </ion-button>
+
+        <ion-button class="botonduoc ion-auto" *ngIf="escaneando" (click)="detenerEscaneoQR()">
+          <ion-icon slot="start" name="stop-circle-outline"></ion-icon>
+          Detener escaneo de QR
+        </ion-button>
+
+        <video #video [hidden]="!escaneando" width="100%"></video>
+        <canvas #canvas hidden></canvas>
+
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Los datos del Código QR son los siguientes:</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="borde">
+            <h2 *ngIf="datosQR">
+              {{ datosQR }}
+            </h2>
+            <h2 *ngIf="!datosQR">
+              Sin información
+            </h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

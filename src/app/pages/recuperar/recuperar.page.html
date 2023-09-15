@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar class="headercolor">
+    <ion-title>
+      <ion-img class="imglogo" src="assets/img/DuocUC.svg.png"></ion-img>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="background">
+
+  
+
+  <div style="height: 80%; display: flex; align-items: center; justify-content:center;">
+    <ion-card class="colorcard1 ion-text-center">
+      <ion-card-title class="azul ion-text-center">
+        <h1>Sistema de asistencia Duoc</h1>
+        <ion-label>
+          <p class="azul">Recupera tu contraseña</p>
+        </ion-label>
+      </ion-card-title>
+      <form>
+        <ion-card-content>
+          <ion-item class="ingrdat">
+            <ion-input name="correo" label="Correo" labelPlacement="floating" type="text" [(ngModel)]="usuario.correo"></ion-input>
+          </ion-item>
+          
+          
+          <ion-button class="botonduoc ion-auto" (click)="ingresar()">Ingresar</ion-button>
+        </ion-card-content>
+      </form>
+    </ion-card>
+  </div>
+  
+</ion-content>

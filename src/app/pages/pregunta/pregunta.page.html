@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar class="headercolor">
+    <div class="centratit">
+      <ion-buttons slot="start">
+        <ion-img class="imglogo" src="assets/img/DuocUC.svg.png"></ion-img>
+      </ion-buttons>
+      <ion-title class="ion-text-center">
+        Asistencia Duoc
+      </ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">pregunta</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div style="height: 80%; display: flex; align-items: center; justify-content:center;">
+    <ion-card class="colorcard1">
+      <ion-card-title class="ion-padding-top">
+        <ion-label class="ion-text-center">
+          <h1 class="azul">¡Bienvenido!</h1>
+          <h4 class="azul" *ngIf="usuario">Usuario: {{ usuario.nombre }} {{usuario.apellido}}</h4>
+          <h4 class="azul"> Por favor responda</h4>
+          <h4 class="azul" *ngIf="usuario">{{usuario.pregunta}}</h4>
+        </ion-label>
+      </ion-card-title>
+
+      <form>
+        <!-- Contenido del card -->
+        <ion-card-content>
+          <ion-item class="ingrdat">
+            <ion-input name="respuesta" label="respuesta" labelPlacement="floating" type="text" [(ngModel)]="usuario.respuesta"></ion-input>
+          </ion-item>
+          
+          <ion-button class="botonduoc" shape="block" (click)="ingresar()">Ingresar</ion-button>
+        </ion-card-content>
+      </form>
+    </ion-card>
+  </div>
+</ion-content>
